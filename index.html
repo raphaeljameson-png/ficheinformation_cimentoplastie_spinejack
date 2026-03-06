@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Fiche d'information patient — Cimentoplastie et SpineJack</title>
+<style>
+  :root {
+    --ink:#111;
+    --muted:#444;
+    --accent:#0b6fa4;      /* bleu */
+    --accent2:#22b8b8;     /* turquoise */
+    --bg:#fff;
+    --border:#d9d9d9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f3f5f7;
+    color: var(--ink);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;
+    line-height: 1.35;
+  }
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(6px);
+  }
+  .toolbar-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .toolbar .btn {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .toolbar .btn.primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+  }
+  .wrap {
+    max-width: 980px;
+    margin: 22px auto;
+    padding: 0 16px 28px;
+  }
+  .page {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 26px 34px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  }
+  header.top {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent);
+  }
+  header.top img {
+    width: 110px;
+    height: auto;
+  }
+  .brand h1 {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+  }
+  .brand .line {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  .doc-title {
+    margin-top: 18px;
+    border-left: 6px solid var(--accent2);
+    padding-left: 14px;
+  }
+  .doc-title h2 {
+    margin: 0;
+    font-size: 22px;
+  }
+  .doc-title .meta {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    display: flex;
+    gap: 30px;
+  }
+
+  h3 {
+    margin: 22px 0 8px;
+    font-size: 16px;
+    color: var(--accent);
+  }
+  h4 {
+    margin: 14px 0 6px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0 8px 18px; }
+  li { margin: 4px 0; }
+
+  .note {
+    border: 1px solid var(--border);
+    border-left: 6px solid var(--accent2);
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #fbfeff;
+    margin: 12px 0;
+  }
+  .warn {
+    border-left-color: #d93025;
+    background: #fff9f8;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    vertical-align: top;
+  }
+  th {
+    background: #f6f8fa;
+    text-align: left;
+  }
+
+  .hr {
+    margin: 18px 0;
+    height: 1px;
+    background: var(--border);
+    border: 0;
+  }
+
+  footer {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .toolbar { display: none; }
+    .wrap { margin: 0; padding: 0; }
+    .page {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 14mm 14mm;
+    }
+    a { color: inherit; text-decoration: none; }
+    @page { size: A4; margin: 12mm; }
+  }
+
+/* Print layout improvements */
+@media print {
+  .no-print, .no-print * { display: none !important; }
+}
+@page { margin: 12mm; }
+</style>
+</head>
+<body>
+<div class="toolbar no-print">
+<div class="toolbar-inner">
+<div style="font-weight:700;">Fiche Cimentoplastie / SpineJack</div>
+<button class="btn primary" onclick="window.print()">Imprimer / Sauvegarder PDF</button>
+</div>
+</div>
+<div class="wrap">
+<div class="page">
+<header class="top">
+<img alt="Logo Espace Francilien du Rachis" src="logo.png"/>
+<div class="brand">
+<h1>ESPACE FRANCILIEN DU RACHIS</h1>
+<div class="line">95, rue de Prony — 75017 Paris | rachis.paris</div>
+<div class="line">Dr Raphaël Jameson · Dr Mayalen Lamerain · Dr Christophe Travert</div>
+</div>
+</header>
+<div class="doc-title">
+<h2>FICHE D'INFORMATION PATIENT — Cimentoplastie et Expansion Vertébrale (SpineJack®)</h2>
+<div class="meta">
+<div><strong>Document remis le :</strong> ____ / ____ / ________</div>
+<div><strong>Patient(e) :</strong> ___________________________________</div>
+</div>
+</div>
+<div class="note">
+        Cette fiche d'information a été conçue pour vous fournir un support complet à l'information orale délivrée par votre chirurgien au cours des consultations.
+        Elle ne se substitue pas à l'entretien direct avec votre médecin, qui reste le seul à pouvoir adapter l'information à votre situation personnelle et à répondre à vos questions.
+        Conformément à la législation en vigueur (loi du 4 mars 2002 relative aux droits des malades), vous devez disposer d'une information claire, loyale et appropriée avant toute intervention.
+        Ce document en constitue la trace écrite.
+      </div>
+
+<h3>CHAPITRE 1 — COMPRENDRE LA FRACTURE (TASSEMENT) VERTÉBRALE</h3>
+<h4>1.1 Qu'est-ce qu'un tassement vertébral ?</h4>
+<p>La colonne vertébrale est constituée d'un empilement d'os appelés vertèbres. Un <strong>tassement vertébral</strong> est en réalité une <strong>fracture</strong> du corps de la vertèbre, qui s'écrase sur lui-même, perdant ainsi sa hauteur et prenant souvent une forme de coin (cunéiforme). Cela provoque une déformation du dos (cyphose ou "dos rond") et des douleurs mécaniques très intenses.</p>
+
+
+<h4>1.2 Les causes principales</h4>
+<ul>
+<li><strong>L'ostéoporose :</strong> C'est la cause la plus fréquente. L'os devient poreux et fragile avec l'âge (surtout chez la femme après la ménopause). Un simple effort (porter un sac, tousser, rater une marche) peut suffire à fracturer la vertèbre.</li>
+<li><strong>Le traumatisme :</strong> Un accident de la voie publique, une chute d'un lieu élevé ou un choc sportif violent.</li>
+<li><strong>Les tumeurs :</strong> Plus rarement, une métastase osseuse ou un myélome peut fragiliser la vertèbre et la faire céder.</li>
+</ul>
+
+<h3>CHAPITRE 2 — POURQUOI ET QUAND OPÉRER ?</h3>
+<h4>2.1 Le traitement médical de première intention</h4>
+<p>Initialement, le traitement d'une fracture vertébrale repose sur le repos, des antalgiques puissants et le port d'un corset rigide pendant 6 à 12 semaines pour permettre à l'os de consolider naturellement.</p>
+
+<h4>2.2 Les indications de la chirurgie percutanée</h4>
+<p>Le chirurgien vous proposera une intervention (injection de ciment) si :</p>
+<ul>
+<li>La douleur est <strong>hyperalgique</strong> (intolérable) et vous empêche de vous lever ou de respirer normalement.</li>
+<li>La douleur persiste malgré 3 à 4 semaines de traitement médical bien conduit (la fracture ne consolide pas).</li>
+<li>La vertèbre s'écrase de plus en plus sur les radiographies de contrôle, créant une forte déformation du dos (cyphose).</li>
+</ul>
+
+<h3>CHAPITRE 3 — LES TECHNIQUES CHIRURGICALES (VOIE PERCUTANÉE)</h3>
+<p>L'objectif de ces interventions est de consolider immédiatement l'os cassé pour supprimer la douleur. Elles se réalisent <strong>sans ouverture de la peau (percutané)</strong>, en passant de simples aiguilles à travers le dos sous contrôle radiologique permanent.</p>
+
+<h4>3.1 La Cimentoplastie (ou Vertébroplastie simple)</h4>
+<p>Cette technique consiste à introduire une aiguille dans la vertèbre fracturée et à y injecter du <strong>ciment acrylique médical</strong>. Le ciment va combler les fissures de l'os et durcir en 15 minutes. <br>
+<em>Effet :</em> La vertèbre est "figée", la douleur disparaît. Cependant, cette technique <strong>ne redonne pas</strong> à la vertèbre sa hauteur d'origine.</p>
+
+<h4>3.2 L'Expansion vertébrale (Système SpineJack® ou Kyphoplastie)</h4>
+<p>Pour les fractures récentes où la vertèbre est très affaissée, on utilise une technique d'expansion avant de mettre le ciment. L'objectif est de "relever" la vertèbre pour restaurer l'anatomie de la colonne.</p>
+
+<ul>
+<li><strong>Le principe du SpineJack® :</strong> Le chirurgien insère deux petits implants en titane pliés. Une fois dans la vertèbre, il les déploie (comme un cric de voiture). Le "cric" repousse l'os écrasé et redonne à la vertèbre sa taille normale.</li>
+<li><strong>La consolidation :</strong> Une fois la vertèbre redressée par les implants, le ciment médical est injecté pour figer le tout définitivement.</li>
+</ul>
+
+<h3>CHAPITRE 4 — L'IMPÉRATIF MÉDICAL : TRAITER L'OSTÉOPOROSE</h3>
+<div class="note warn">
+<strong>⚠️ Attention : L'opération répare la fracture, mais elle ne soigne pas la maladie de vos os !</strong>
+</div>
+<p>Si votre fracture est due à l'ostéoporose, votre squelette entier est fragile. Sans traitement de fond, vous avez un risque majeur de vous casser une autre vertèbre, le col du fémur ou le poignet dans l'année qui suit.</p>
+<p><strong>Votre plan d'action post-opératoire obligatoire :</strong></p>
+<ol>
+<li>Prendre rendez-vous avec un <strong>rhumatologue</strong> (ou votre médecin traitant).</li>
+<li>Réaliser une <strong>Ostéodensitométrie</strong> (examen radiologique mesurant la densité de vos os).</li>
+<li>Suivre un traitement médical de fond (souvent des bisphosphonates, accompagnés de Calcium et Vitamine D) pour renforcer l'ensemble de votre squelette.</li>
+</ol>
+
+<h3>CHAPITRE 5 — RÉSULTATS ATTENDUS, COMPLICATIONS ET RISQUES</h3>
+<h4>5.1 Résultats attendus</h4>
+<p>L'efficacité sur la douleur de la fracture est excellente et souvent spectaculaire : le patient est soulagé dès le réveil ou dans les 48 heures. Le lever est possible immédiatement, évitant ainsi les complications liées à l'alitement (phlébites, fonte musculaire).</p>
+
+<h4>5.2 Le risque biomécanique : La fracture de la vertèbre adjacente ("l'effet domino")</h4>
+<p>C'est le risque principal à long terme.</p>
+<ul>
+<li><strong>Explication :</strong> La vertèbre remplie de ciment devient extrêmement dure. Les vertèbres situées juste au-dessus ou en dessous restent poreuses et fragiles (ostéoporose). Lors des mouvements, la vertèbre "dure" va agir comme un marteau sur la vertèbre "molle" voisine, qui risque de se tasser à son tour.</li>
+<li><strong>Prévention :</strong> L'utilisation d'implants de type <strong>SpineJack</strong> permet de redresser le dos (correction de la cyphose) et de mieux répartir les pressions, ce qui diminue ce risque d'effet domino par rapport à une cimentoplastie simple. Le traitement médical de l'ostéoporose est également le meilleur rempart contre ce risque.</li>
+</ul>
+
+<h4>5.3 Les complications per-opératoires</h4>
+<p><strong>La fuite de ciment (Très fréquente mais souvent sans gravité)</strong></p>
+<ul>
+<li>Le ciment étant liquide lors de l'injection, il peut déborder hors de la vertèbre (vers les veines, les disques ou le canal rachidien). Cela se voit très souvent sur les radios de contrôle.</li>
+<li>Dans l'immense majorité des cas, ces petites fuites sont totalement <strong>asymptomatiques</strong> et sans danger.</li>
+<li><strong>Risques rares liés aux fuites :</strong> Si le ciment fuit au contact d'un nerf ou de la moelle épinière, il peut provoquer une sciatique ou une paralysie nécessitant une intervention chirurgicale en urgence pour le retirer. Si le ciment part dans une veine, il peut migrer jusqu'aux poumons (embolie pulmonaire au ciment), nécessitant une prise en charge médicale.</li>
+</ul>
+<p><strong>L'infection et l'hématome</strong></p>
+<ul>
+<li>Le risque d'infection est extrêmement faible (moins de 1 %) car l'intervention se fait à travers la peau (trous d'aiguille). De même, les saignements sont minimes.</li>
+</ul>
+
+<h3>CHAPITRE 6 — HOSPITALISATION, SUITES OPÉRATOIRES ET CONVALESCENCE</h3>
+<h4>6.1 Hospitalisation et Lever précoce</h4>
+<ul>
+<li>L'intervention dure environ 30 à 45 minutes par vertèbre, sous anesthésie générale ou locale approfondie.</li>
+<li><strong>Le ciment durcit complètement en 15 minutes.</strong></li>
+<li>Le lever est autorisé <strong>2 heures après l'intervention</strong>.</li>
+<li>Le retour à domicile se fait soit le jour même (<strong>ambulatoire</strong>), soit le lendemain matin (1 nuit d'hospitalisation).</li>
+</ul>
+
+<h4>6.2 Convalescence et Reprises d'activités</h4>
+<p><strong>Aucun corset n'est nécessaire</strong> puisque la vertèbre est instantanément consolidée de l'intérieur.</p>
+<table>
+<thead><tr><th>Activité</th><th>Délai approximatif</th><th>Conditions</th></tr></thead>
+<tbody>
+<tr><td>Marche et activités du quotidien</td><td>Dès le retour en chambre</td><td>À votre rythme</td></tr>
+<tr><td>Douche</td><td>Dès J+1</td><td>Retirer les petits pansements (pas de points)</td></tr>
+<tr><td>Conduite automobile</td><td>1 à 2 semaines</td><td>Selon le confort</td></tr>
+<tr><td>Port de charges modérées</td><td>3 à 4 semaines</td><td>Toujours plier les genoux (ergonomie)</td></tr>
+<tr><td>Kinésithérapie (gainage doux)</td><td>4 à 6 semaines</td><td>Après la consultation de contrôle</td></tr>
+</tbody>
+</table>
+
+<h4>6.3 Signes d'alerte — consulter en urgence après l'opération</h4>
+<div class="note warn">
+<table>
+<thead><tr><th>Signe d'alerte observé</th><th>Action à entreprendre</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>Réapparition d'une douleur aiguë dans le dos</strong><br>Soudaine, brutale, ressemblant à la douleur d'avant l'opération.</td>
+  <td><strong>Consulter rapidement</strong><br>Il s'agit très probablement d'une nouvelle fracture (tassement adjacent) nécessitant une nouvelle radiographie.</td>
+</tr>
+<tr>
+  <td><strong>Essoufflement brutal, douleur thoracique, toux</strong></td>
+  <td><strong>URGENCE ABSOLUE (Appeler le 15)</strong><br>Suspicion d'embolie pulmonaire (caillot ou migration de ciment).</td>
+</tr>
+<tr>
+  <td><strong>Perte de force dans les jambes ou sciatique fulgurante</strong><br>Apparition de douleurs électriques dans les jambes ou incapacité à uriner.</td>
+  <td><strong>URGENCE ABSOLUE (Appeler le 15)</strong><br>Suspicion de compression neurologique.</td>
+</tr>
+<tr>
+  <td><strong>Fièvre persistante, frissons, douleur croissante</strong></td>
+  <td><strong>Consulter rapidement</strong><br>Suspicion d'infection (spondylodiscite).</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>FOIRE AUX QUESTIONS (FAQ) — LES 15 QUESTIONS LES PLUS POSÉES</h3>
+<div class="note">
+<p><strong>1. Quelle est la différence entre cimentoplastie, kyphoplastie et SpineJack ?</strong><br>
+La cimentoplastie (ou vertébroplastie) injecte du ciment pour consolider l'os dans sa position tassée. La kyphoplastie et le SpineJack utilisent d'abord un ballonnet ou un "cric" en titane pour redresser la vertèbre avant d'injecter le ciment, ce qui restaure l'équilibre de la colonne.</p>
+
+<p><strong>2. Est-ce que l'opération est douloureuse ?</strong><br>
+L'intervention elle-même ne l'est pas car vous êtes anesthésié. Au réveil, vous pouvez ressentir une légère gêne aux points d'entrée des aiguilles, mais la douleur atroce liée à la fracture osseuse disparaît presque immédiatement.</p>
+
+<p><strong>3. Serais-je endormi(e) complètement ?</strong><br>
+Le plus souvent, l'intervention se fait sous anesthésie générale courte pour votre confort parfait, car il faut rester strictement immobile. Parfois, elle peut être réalisée sous anesthésie locale associée à une sédation (vous êtes un peu "dans les vapes").</p>
+
+<p><strong>4. En combien de temps la douleur de la fracture disparaît-elle ?</strong><br>
+Le soulagement est fulgurant. Dans la majorité des cas, la douleur a presque totalement disparu dès le retour dans la chambre.</p>
+
+<p><strong>5. Vais-je avoir une cicatrice ?</strong><br>
+Non, vous n'aurez pas de véritable cicatrice. Le chirurgien passe des aiguilles à travers la peau. Cela laisse 1 ou 2 minuscules croûtes (de 2 à 3 millimètres) qui guérissent sans points de suture.</p>
+
+<p><strong>6. Combien de temps dure l'hospitalisation ?</strong><br>
+C'est très court. Si votre état général le permet, c'est une chirurgie ambulatoire (vous entrez le matin, sortez le soir). Sinon, cela nécessite une seule nuit de surveillance.</p>
+
+<p><strong>7. Y a-t-il un risque de fuite de ciment ?</strong><br>
+Oui, c'est fréquent car l'os est poreux. Cependant, le chirurgien contrôle l'injection en direct sur un écran radiographique. S'il voit une fuite indésirable, il arrête l'injection. Les petites fuites résiduelles sont presque toujours sans aucune conséquence.</p>
+
+<p><strong>8. Dois-je porter un corset après l'intervention ?</strong><br>
+Non ! C'est le grand avantage de cette technique. Le ciment sèche et devient plus dur que l'os en 15 minutes. Votre vertèbre est immédiatement solide et apte à supporter votre poids.</p>
+
+<p><strong>9. Peut-on opérer une fracture ancienne de plusieurs mois ?</strong><br>
+Rarement. Si l'os s'est déjà soudé (consolidé) de lui-même dans une mauvaise position, il est impossible d'y injecter du ciment ou d'y déployer un SpineJack. La technique est réservée aux fractures récentes, encore douloureuses et instables (œdème visible à l'IRM).</p>
+
+<p><strong>10. Est-ce que cette opération soigne l'ostéoporose ?</strong><br>
+Absolument pas. L'opération colmate la fracture, mais l'ostéoporose reste présente dans tout votre squelette. Un traitement médical prescrit par un rhumatologue est vital par la suite.</p>
+
+<p><strong>11. Y a-t-il des vis ou des plaques métalliques dans mon dos ?</strong><br>
+Non, il n'y a pas de gros matériel (arthrodèse). Il y a uniquement du ciment acrylique, et éventuellement de petits implants en titane (SpineJack) si la technique d'expansion a été choisie. Tout reste enfermé à l'intérieur de la vertèbre.</p>
+
+<p><strong>12. Est-ce que le ciment peut se dégrader avec le temps ?</strong><br>
+Non, le ciment orthopédique est définitif. Il ne se résorbe pas, ne s'effrite pas et reste en place à vie.</p>
+
+<p><strong>13. Quand pourrai-je me lever et marcher ?</strong><br>
+Deux heures après la fin de l'intervention, dès votre retour en chambre ou l'autorisation de l'anesthésiste.</p>
+
+<p><strong>14. Puis-je passer une IRM après avoir reçu du ciment ou un SpineJack ?</strong><br>
+Oui. Le ciment acrylique et le titane des implants SpineJack sont des matériaux parfaitement compatibles avec les champs magnétiques (amagnétiques). L'IRM est sans danger.</p>
+
+<p><strong>15. Peut-on traiter plusieurs vertèbres cassées en même temps ?</strong><br>
+Oui. Il est tout à fait possible de cimenter ou de redresser 2 ou 3 vertèbres tassées lors de la même anesthésie, si cela est médicalement justifié.</p>
+</div>
+
+<h3>QUESTIONS À POSER À VOTRE CHIRURGIEN</h3>
+<ol>
+<li>Allez-vous réaliser une simple cimentoplastie ou utiliser un système d'expansion (SpineJack) ?</li>
+<li>Sur combien de vertèbres allez-vous intervenir ?</li>
+<li>Dois-je arrêter mon traitement anticoagulant pour cette intervention percutanée ?</li>
+<li>Puis-je avoir une ordonnance pour réaliser mon ostéodensitométrie ?</li>
+</ol>
+
+<h3>CONSENTEMENT ÉCLAIRÉ</h3>
+<p>J'atteste avoir reçu cette fiche d'information et en avoir pris connaissance. J'ai pu poser les questions que je souhaitais et j'ai obtenu des réponses satisfaisantes. J'ai compris la nature de l'intervention percutanée (cimentoplastie / expansion vertébrale), ses bénéfices attendus sur la douleur, l'obligation absolue de traiter médicalement mon ostéoporose par la suite, ainsi que les risques de l'opération (notamment la fuite de ciment) et le risque à distance de fracture sur une vertèbre voisine.</p>
+<p><strong>Date :</strong> </p>
+
+<div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:10px;"><p style="margin:0;flex:1;min-width:280px;"><strong>Nom et prénom du patient : </strong>________________________________</p><p style="margin:0;flex:1;min-width:280px;"><strong>Signature du patient :</strong> ________________________________</p></div>
+<footer>
+<div><strong>Espace Francilien du Rachis</strong> — 95, rue de Prony, 75017 Paris</div>
+<div>Dr Raphaël Jameson : dr.jameson@rachis.paris · Dr Mayalen Lamerain : dr.mlamerain@gmail.com · Dr Christophe Travert : dr.ctravert@gmail.com</div>
+<div><strong>rachis.paris</strong></div>
+</footer>
+</div>
+</div>
+</body>
+</html>
